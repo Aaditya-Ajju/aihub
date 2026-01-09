@@ -55,7 +55,7 @@ const upload = multer({ dest: 'uploads/' });
 
 // Database Connection
 import mongoose from 'mongoose';
-mongoose.connect(process.env.MONGO_URI || "mongodb+srv://aaditya:ajju@cluster0.cfv479d.mongodb.net/?appName=Cluster0") // Fallback for safety
+mongoose.connect(process.env.MONGO_URI ) // Fallback for safety
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.error("MongoDB connection error:", err));
 
