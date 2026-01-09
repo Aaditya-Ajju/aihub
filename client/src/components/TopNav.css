@@ -1,0 +1,76 @@
+.top-nav {
+    position: sticky;
+    top: -20px;
+    /* Offset for main-content padding */
+    margin: -20px -20px 30px -20px;
+    width: calc(100% + 40px);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(10, 10, 30, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.top-nav-items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.top-nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-dim);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.top-nav-btn.active {
+    background: rgba(160, 0, 255, 0.2);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.top-credits-badge {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-credits-badge .count {
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        padding: 10px 15px;
+    }
+
+    .top-nav-btn span {
+        display: none;
+    }
+}

@@ -1,0 +1,174 @@
+.leaderboard-page {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.leaderboard-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 15px auto 0;
+}
+
+.leaderboard-list {
+    padding: 10px;
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+}
+
+.leader-item {
+    display: flex;
+    align-items: center;
+    padding: 24px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+}
+
+.leader-item:last-child {
+    border-bottom: none;
+}
+
+.leader-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.rank {
+    width: 60px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-secondary);
+    font-family: 'Outfit', sans-serif;
+}
+
+.rank-gold {
+    color: #ffd700;
+    font-size: 2rem;
+}
+
+.rank-silver {
+    color: #c0c0c0;
+    font-size: 1.8rem;
+}
+
+.rank-bronze {
+    color: #cd7f32;
+    font-size: 1.6rem;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 16px;
+    background: var(--grad-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: white;
+    margin-right: 25px;
+    font-size: 1.4rem;
+    box-shadow: 0 8px 20px rgba(255, 0, 128, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.username.top-tier {
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.referral-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.referral-count::before {
+    content: '👥';
+}
+
+.badge {
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.leader-item:nth-child(1) .badge {
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 128, 0, 0.2));
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.leader-item:nth-child(2) .badge {
+    background: linear-gradient(45deg, rgba(192, 192, 192, 0.2), rgba(128, 128, 128, 0.2));
+    border-color: #c0c0c0;
+    color: #c0c0c0;
+}
+
+.leader-item:nth-child(3) .badge {
+    background: linear-gradient(45deg, rgba(205, 127, 50, 0.2), rgba(128, 64, 0, 0.2));
+    border-color: #cd7f32;
+    color: #cd7f32;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .leaderboard-page {
+        padding: 1.5rem;
+    }
+
+    .badge {
+        display: none;
+    }
+
+    .username {
+        font-size: 1.1rem;
+    }
+}
