@@ -9,7 +9,8 @@ export default function ReferralModal({ isOpen, onClose }) {
     const [loading, setLoading] = useState(false);
 
     const referralCode = user?.referralCode || "REF-" + Math.random().toString(36).substring(2, 6).toUpperCase();
-    const shareUrl = `${window.location.origin}/login?ref=${referralCode}`;
+    const productionUrl = "https://aihub-delta-gold.vercel.app";
+    const shareUrl = `${productionUrl}/login?ref=${referralCode}`;
     const shareText = `Hey! Use my referral code ${referralCode} to get 5 extra credits on AI Hub! 🚀 Join now: ${shareUrl}`;
 
     useEffect(() => {
@@ -22,12 +23,17 @@ export default function ReferralModal({ isOpen, onClose }) {
         setLoading(true);
         try {
             const token = localStorage.getItem("token");
-            const { data } = await axios.get("http://localhost:5000/api/auth/referrals", {
+            const apiUrl = process.env.NODE_ENV === 'production' 
+                ? 'https://aihub-delta-gold.vercel.app/api/auth/referrals'
+                : 'http://localhost:5000/api/auth/referrals';
+                
+            const { data } = await axios.get(apiUrl, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setReferrals(data);
         } catch (error) {
             console.error("Failed to fetch referrals", error);
+            toast.error("Failed to load referral data. Please try again.");
         } finally {
             setLoading(false);
         }
