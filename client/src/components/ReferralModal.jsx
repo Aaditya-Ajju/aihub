@@ -9,7 +9,7 @@ export default function ReferralModal({ isOpen, onClose }) {
     const [loading, setLoading] = useState(false);
 
     const referralCode = user?.referralCode || "REF-" + Math.random().toString(36).substring(2, 6).toUpperCase();
-    const productionUrl = "https://aihub-delta-gold.vercel.app";
+   const productionUrl = "https://aihubsuite.vercel.app";
     const shareUrl = `${productionUrl}/login?ref=${referralCode}`;
     const shareText = `Hey! Use my referral code ${referralCode} to get 5 extra credits on AI Hub! 🚀 Join now: ${shareUrl}`;
 
@@ -24,7 +24,7 @@ export default function ReferralModal({ isOpen, onClose }) {
         try {
             const token = localStorage.getItem("token");
             const apiUrl = process.env.NODE_ENV === 'production' 
-                ? 'https://aihub-delta-gold.vercel.app/api/auth/referrals'
+                ? 'https://aihubsuite.vercel.app/api/auth/referrals'
                 : 'http://localhost:5000/api/auth/referrals';
                 
             const { data } = await axios.get(apiUrl, {
